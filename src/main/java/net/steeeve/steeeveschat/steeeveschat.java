@@ -1,4 +1,4 @@
-package net.steeeve.dfchat;
+package net.steeeve.steeeveschat;
 
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
@@ -9,7 +9,7 @@ import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
-import net.steeeve.dfchat.events.ChatEvent;
+import net.steeeve.steeeveschat.events.ChatEvent;
 import org.slf4j.Logger;
 
 import java.io.File;
@@ -18,19 +18,18 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Arrays;
 
 @Plugin(
-        id = "dfchat",
-        name = "DF-Chat",
-        version = "1.1-SNAPSHOT",
-        description = "DarkFamine's Chat plugin for velocity. A simple chat plugin with a simple purpose.",
-        authors = {"DarkFamine"},
+        id = "steeeveschat",
+        name = "Steeeves-Chat",
+        version = "1.0.0",
+        description = "Steeeve's Chat plugin for velocity. A simple chat plugin with a simple purpose.",
+        authors = {"DarkFamine", "Steeeve"},
         dependencies = {
             @Dependency(id = "luckperms")
         }
 )
-public class Dfchat {
+public class steeeveschat {
 
     @Inject
     private final Logger logger;
@@ -45,7 +44,7 @@ public class Dfchat {
     //private ProxyServer server;
 
     @Inject
-    public Dfchat(ProxyServer server, Logger logger, @DataDirectory Path dataDirectory) {
+    public steeeveschat(ProxyServer server, Logger logger, @DataDirectory Path dataDirectory) {
         this.server = server;
         this.logger = logger;
         this.dataDir = dataDirectory;
@@ -79,7 +78,7 @@ public class Dfchat {
     }
 
     public static void setApi(LuckPerms api) {
-        Dfchat.api = api;
+        steeeveschat.api = api;
     }
 
     public static LuckPerms getApi() {

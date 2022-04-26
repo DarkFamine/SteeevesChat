@@ -1,17 +1,16 @@
-package net.steeeve.dfchat.util;
+package net.steeeve.steeeveschat.util;
 
 import com.velocitypowered.api.proxy.Player;
-import net.kyori.adventure.text.Component;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.user.User;
-import net.steeeve.dfchat.Dfchat;
-import net.steeeve.dfchat.Config;
+import net.steeeve.steeeveschat.steeeveschat;
+import net.steeeve.steeeveschat.Config;
 
 import java.util.Optional;
 
 public class formatting {
 
-    private Config config = Dfchat.config;
+    private Config config = steeeveschat.config;
 
     public formatting(Config configuration) {
         //Grab config settings
@@ -21,7 +20,7 @@ public class formatting {
     public String formatMessage(Player player, String message) {
 
         //LuckPerms init
-        LuckPerms luckperms = Dfchat.getApi();
+        LuckPerms luckperms = steeeveschat.getApi();
         User user = luckperms.getPlayerAdapter(Player.class).getUser(player);
 
         //Fancy code in case of null prefix/suffix
@@ -50,7 +49,7 @@ public class formatting {
     public String basicFormatting(Player player, String message) {
 
         //LuckPerms init
-        LuckPerms luckperms = Dfchat.getApi();
+        LuckPerms luckperms = steeeveschat.getApi();
         User user = luckperms.getPlayerAdapter(Player.class).getUser(player);
 
         //Fancy code in case of null prefix/suffix

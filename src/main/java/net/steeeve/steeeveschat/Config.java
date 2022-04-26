@@ -1,4 +1,4 @@
-package net.steeeve.dfchat;
+package net.steeeve.steeeveschat;
 
 import com.google.inject.Inject;
 import com.moandjiezana.toml.Toml;

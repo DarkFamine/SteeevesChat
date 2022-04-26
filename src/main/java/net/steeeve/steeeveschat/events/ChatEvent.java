@@ -1,29 +1,20 @@
-package net.steeeve.dfchat.events;
+package net.steeeve.steeeveschat.events;
 
 import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.player.PlayerChatEvent;
 import com.velocitypowered.api.proxy.Player;
 import com.velocitypowered.api.proxy.ProxyServer;
-import com.velocitypowered.api.proxy.server.RegisteredServer;
 import net.kyori.adventure.identity.Identity;
 import net.kyori.adventure.text.Component;
-import net.luckperms.api.LuckPerms;
-import net.luckperms.api.model.user.User;
-import net.luckperms.api.node.Node;
-import net.steeeve.dfchat.Config;
-import net.steeeve.dfchat.Dfchat;
-import net.steeeve.dfchat.util.formatting;
-import org.checkerframework.checker.regex.RegexUtil;
+import net.steeeve.steeeveschat.Config;
+import net.steeeve.steeeveschat.util.formatting;
 import org.slf4j.Logger;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.regex.PatternSyntaxException;
 
 public class ChatEvent {
 

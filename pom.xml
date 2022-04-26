@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.steeeve</groupId>
-    <artifactId>dfchat</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <artifactId>steeeveschat</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>DF-Chat</name>
+    <name>Steeeves-Chat</name>
 
-    <description>DarkFamine's Chat plugin for velocity. A simple chat plugin with a simple purpose.</description>
+    <description>Steeeve's Chat plugin for velocity. A simple chat plugin with a simple purpose.</description>
     <properties>
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
