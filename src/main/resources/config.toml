@@ -25,8 +25,8 @@ config_version = 3
     format = "&c<player> moved to <server>"
 
 [filter]
+    #Want to add/remove what words at blocked? Check out blocked-words.txt
     enable = true
-    blocked = ["anal","anus","arse","ass","ballsack","bastard","bitch","biatch","blowjob","blow job","bollock","bollok","boner","boob","bugger","buttplug","clitoris","cock","coon","cunt","dick","dildo","dyke","fag","feck","fellate","fellatio","felching","fuck","f u c k","fudgepacker","fudge packer","flange","Goddamn","God damn","jizz","knobend","knob end","labia","muff","nigger","nigga","nigger","penis","piss","poop","prick","pube","pussy","queer","scrotum","sex","shit","s hit","sh1t","slut","smegma","tit","vagina","wank","whore"]
     blocked-msg = "Sorry, your message contains a blacklisted word."
     blocked-actionbar = "Hey, your message contains a blacklisted word."
     #If set to true it will add your text instead of simply blocking the message

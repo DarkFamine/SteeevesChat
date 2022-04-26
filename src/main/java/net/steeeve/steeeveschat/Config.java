@@ -23,14 +23,12 @@ public class Config {
     public boolean GLOBAL_CHAT_ENABLED;
     public boolean GLOBAL_CHAT_TO_CONSOLE;
     public boolean GLOBAL_CHAT_PASSTHROUGH;
-    // public boolean GLOBAL_CHAT_ALLOW_MSG_FORMATTING;
     public String GLOBAL_CHAT_FORMAT;
 
     public boolean SWITCH_ENABLE;
     public String SWITCH_FORMAT;
 
     public boolean FILTER_ENABLE;
-    public List<String> FILTER_BLOCKED;
     public String FILTER_BLOCKED_MSG;
     public String FILTER_BLOCKED_ACTION_BAR;
     public boolean FILTER_CENSOR;
@@ -81,7 +79,6 @@ public class Config {
         this.SWITCH_FORMAT = this.toml.getString("switch.format", "<player> moved to <server>");
 
         this.FILTER_ENABLE = this.toml.getBoolean("filter.enable", true);
-        this.FILTER_BLOCKED = this.toml.getList("filter.blocked");
         this.FILTER_BLOCKED_MSG = this.toml.getString("filter.blocked-msg", "Sorry, your message contains a blacklisted word.");
         this.FILTER_BLOCKED_ACTION_BAR = this.toml.getString("filter.filter.blocked-actionbar", "Hey, your message contains a blacklisted word.");
         this.FILTER_CENSOR = this.toml.getBoolean("filter.censor", true);
