@@ -12,7 +12,13 @@ import net.luckperms.api.LuckPermsProvider;
 import net.steeeve.dfchat.events.ChatEvent;
 import org.slf4j.Logger;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Arrays;
 
 @Plugin(
         id = "dfchat",
@@ -32,6 +38,7 @@ public class Dfchat {
     public static LuckPerms api;
     public static Config config;
     public static Path dataDir;
+    public static List<String> blockedwords;
 
     //@Inject
     //private static Logger logger;
@@ -41,7 +48,6 @@ public class Dfchat {
     public Dfchat(ProxyServer server, Logger logger, @DataDirectory Path dataDirectory) {
         this.server = server;
         this.logger = logger;
-        this.config = config;
         this.dataDir = dataDirectory;
 
         logger.info("DarkFamine's Chat Loaded!");
@@ -50,7 +56,25 @@ public class Dfchat {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        server.getEventManager().register(this, new ChatEvent(this.server, this.logger, this.config));
+
+        File blockedwordsfile = new File(dataDir.toFile(), "blocked-words.txt");
+        //Make sure blacklisted-words.txt exists
+        if (!blockedwordsfile.exists()) {
+            try {
+                InputStream in = this.getClass().getResourceAsStream("/blocked-words.txt");
+                Files.copy(in, blockedwordsfile.toPath());
+            } catch (IOException e) {
+                throw new RuntimeException("ERROR: Can't write default blacklist file (permissions/filesystem error?)");
+            }
+        }
+        try{
+            this.blockedwords = Files.readAllLines(blockedwordsfile.toPath());
+        }
+        catch(IOException e) {
+            this.logger.error("IOException: " + e);
+        }
+
+        server.getEventManager().register(this, new ChatEvent(this.server, this.logger, this.config, this.blockedwords));
         setApi(LuckPermsProvider.get());
     }
 

@@ -47,7 +47,7 @@ public class Config {
     private void loadFile() {
         File dataDirectoryFile = this.dataDir.toFile();
         if (!dataDirectoryFile.exists())
-            dataDirectoryFile.mkdir(); // TODO ensure it succeeds
+            dataDirectoryFile.mkdir();
 
         File dataFile = new File(dataDirectoryFile, "config.toml");
 

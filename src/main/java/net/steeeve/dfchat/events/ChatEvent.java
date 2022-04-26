@@ -19,6 +19,7 @@ import org.slf4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,11 +30,13 @@ public class ChatEvent {
     private final ProxyServer server;
     private final Logger logger;
     private final Config config;
+    private final List<String> blockedwords;
 
-    public ChatEvent(ProxyServer server, Logger logger, Config config) {
+    public ChatEvent(ProxyServer server, Logger logger, Config config, List<String> blockedwords) {
         this.server = server;
         this.logger = logger;
         this.config = config;
+        this.blockedwords = blockedwords;
     }
 
     @Subscribe(order = PostOrder.EARLY)
@@ -47,15 +50,12 @@ public class ChatEvent {
         //Log to console if enabled
         if(config.GLOBAL_CHAT_TO_CONSOLE) {logger.info(toSend);}
 
-        //Pattern pattern = Pattern.compile("w3schools", Pattern.CASE_INSENSITIVE);
-        //Matcher matcher = pattern.matcher("Visit W3Schools!");
-
         Boolean blockedMessage = false;
         String regex = "^word\\W|\\Wword\\W|\\Wword$";
 
         //Check against blacklist
         if(this.config.FILTER_ENABLE)
-            for (String word : this.config.FILTER_BLOCKED) {
+            for (String word : this.blockedwords) {
                 Pattern pattern = Pattern.compile(regex.replaceAll("word", word), Pattern.CASE_INSENSITIVE);
                 Matcher matcher = pattern.matcher(toSend);
                 if(config.FILTER_CENSOR) {
