@@ -27,7 +27,7 @@ Email: [feedback@steeeve.net](mailto:feedback@steeeve.net)
 - Have fun!
 
 ## TODO
-- Clean up code (move filtering into it's own library)
+- Clean up code
 - Add propper documentation.
 - Filter private messages.
 - Global private messaging.
